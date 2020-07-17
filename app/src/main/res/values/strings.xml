@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Jobsearch</string>
+    <string name="greeting">Hello, dear user!</string>
+</resources>
