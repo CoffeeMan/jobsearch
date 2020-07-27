@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Jobsearch</string>
     <string name="greeting">Hello, dear user!</string>
+    <string name="nav_menu_item_home">Домашняя страница</string>
+    <string name="nav_menu_item_admin_panel">Панель Администратора</string>
+    <string name="nav_menu_item_settings">Настройки</string>
+    <string name="title_activity_admin">AdminActivity</string>
+
+
 </resources>
