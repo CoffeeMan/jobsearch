@@ -44,4 +44,4 @@ assembleRelease:
      - ./gradlew assembleRelease
   artifacts:
     paths:
-    - app/build/outputs/apk/debug
+    - app/build/outputs/apk/debug/
