@@ -37,3 +37,9 @@ debugTests:
   stage: test
   script:
     - ./gradlew -Pci --console=plain :app:testDebug
+    
+assembleRelease:
+  stage: release
+  artifacts:
+    paths:
+    - app/build/outputs/apk/debug
