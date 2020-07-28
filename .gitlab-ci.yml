@@ -39,7 +39,7 @@ debugTests:
     - ./gradlew -Pci --console=plain :app:testDebug
     
 assembleRelease:
-  stage: post
+  stage: .post
   script: 
      - ./gradlew assembleRelease
   artifacts:
