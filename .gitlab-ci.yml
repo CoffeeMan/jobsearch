@@ -40,7 +40,8 @@ debugTests:
     
 assembleRelease:
   stage: release
-  script:
+  script: 
+     - ./gradlew assembleRelease
   artifacts:
     paths:
     - app/build/outputs/apk/debug
