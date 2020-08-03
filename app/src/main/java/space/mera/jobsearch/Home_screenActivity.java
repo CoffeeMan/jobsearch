@@ -1,7 +1,7 @@
 package space.mera.jobsearch;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import io.swagger.client.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +20,7 @@ public class Home_screenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//toolbar по material design
@@ -70,14 +71,7 @@ public class Home_screenActivity extends AppCompatActivity {
                 .build();
 
 
-        ListView listView = (ListView) findViewById(android.R.id.list);//Создаем список для гл страницы
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);//По id находим кнопку
-        fab.attachToListView(listView);//крепим кнопку к списку
 
-        String[] items = new String[20];
-        for (int i = 0; i < 20; i++) items[i] = "Вакансия номер " + (i + 1);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);//Создаем адаптер и заполняем его из массива items
-        listView.setAdapter(adapter);
 
     }
 
