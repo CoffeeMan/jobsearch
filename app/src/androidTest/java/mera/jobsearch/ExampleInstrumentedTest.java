@@ -1,4 +1,4 @@
-package space.mera.jobsearch;
+package mera.jobsearch
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("space.mera.jobsearch", appContext.getPackageName());
+        assertEquals("mera.jobsearch", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package space.mera.jobsearch;
+package mera.jobsearch;
 
 import android.os.Bundle;
 

@@ -1,13 +1,13 @@
-package space.mera.jobsearch;
+package mera.jobsearch;
 
 import androidx.appcompat.app.AppCompatActivity;
-import io.swagger.client.*;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.widget.Toolbar;
-import com.melnykov.fab.FloatingActionButton;
+
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;

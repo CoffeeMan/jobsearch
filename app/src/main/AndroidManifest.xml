@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="space.mera.jobsearch">
+    package="mera.jobsearch">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SettingsActivity"
+            android:name="mera.jobsearch.SettingsActivity"
             android:label="@string/title_activity_settings"></activity>
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".Launch_screenActivity">
+        <activity android:name="mera.jobsearch.AdminActivity" />
+        <activity android:name="mera.jobsearch.Launch_screenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home_screenActivity"
+            android:name="mera.jobsearch.Home_screenActivity"
             android:label="Homescreen" />
     </application>
 
