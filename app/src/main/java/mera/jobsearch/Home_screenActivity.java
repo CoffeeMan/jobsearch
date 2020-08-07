@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.widget.Toolbar;
 
+
+import com.melnykov.fab.FloatingActionButton;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -15,6 +17,7 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 public class Home_screenActivity extends AppCompatActivity {
+ private FloatingActionButton add_vacation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +25,11 @@ public class Home_screenActivity extends AppCompatActivity {
         setContentView(R.layout.home_screen);
 
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//toolbar по material design
         if (toolbar != null){
             setSupportActionBar(toolbar);
         }
-
+        addListenerOnButton();
         Drawer.Result drawerResult = new Drawer()//Боковое меню
                 .withActivity(this)
                 .withToolbar(toolbar)
@@ -71,6 +73,22 @@ public class Home_screenActivity extends AppCompatActivity {
                 .build();
 
 
+
+
+
+
+    }
+    private void addListenerOnButton(){
+        add_vacation=(FloatingActionButton)findViewById(R.id.add_vacation);
+        add_vacation.setOnClickListener(
+            new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    Intent move= new Intent(Home_screenActivity.this,Add_vacationActivity.class);
+                    startActivity(move);
+                }
+            }
+        );
 
 
     }

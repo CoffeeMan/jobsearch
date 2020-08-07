@@ -1,10 +1,18 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">#2196F3</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:editTextColor">#000000</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <!--<item name="android:textColorSecondary">#131313</item>
+        <item name="android:textColorTertiary">#D30D0D</item>
+        <item name="android:textColorPrimaryInverse">#ffffff</item>
+        <item name="android:textColorSecondaryInverse">#ffffff</item>
+        <item name="android:textColorTertiaryInverse">#ffffff</item>-->
     </style>
+
 
 </resources>

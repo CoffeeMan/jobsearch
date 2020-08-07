@@ -15,20 +15,20 @@
         <ListView
             android:id="@android:id/list"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
         </ListView>
 
     </LinearLayout>
 
     <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/add_vacation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/ic_action_content_new"
-        fab:fab_colorNormal="#009688"
+        fab:fab_colorNormal="#3E86FA"
         fab:fab_colorPressed="#4db6ac"
         fab:fab_colorRipple="#4db6ac" />
 
