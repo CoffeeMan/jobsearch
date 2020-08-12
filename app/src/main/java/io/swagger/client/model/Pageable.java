@@ -21,52 +21,85 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * CompanyContacts
+ * Pageable
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-12T13:09:32.394+03:00[Europe/Moscow]")
-public class CompanyContacts {
-  @SerializedName("email")
-  private String email = null;
+public class Pageable {
+  @SerializedName("page")
+  private Integer page = null;
 
-  @SerializedName("website")
-  private String website = null;
+  @SerializedName("size")
+  private Integer size = null;
 
-  public CompanyContacts email(String email) {
-    this.email = email;
+  @SerializedName("sort")
+  private List<String> sort = null;
+
+  public Pageable page(Integer page) {
+    this.page = page;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
+   * Get page
+   * minimum: 0
+   * @return page
   **/
   @Schema(description = "")
-  public String getEmail() {
-    return email;
+  public Integer getPage() {
+    return page;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setPage(Integer page) {
+    this.page = page;
   }
 
-  public CompanyContacts website(String website) {
-    this.website = website;
+  public Pageable size(Integer size) {
+    this.size = size;
     return this;
   }
 
    /**
-   * Get website
-   * @return website
+   * Get size
+   * minimum: 1
+   * @return size
   **/
   @Schema(description = "")
-  public String getWebsite() {
-    return website;
+  public Integer getSize() {
+    return size;
   }
 
-  public void setWebsite(String website) {
-    this.website = website;
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  public Pageable sort(List<String> sort) {
+    this.sort = sort;
+    return this;
+  }
+
+  public Pageable addSortItem(String sortItem) {
+    if (this.sort == null) {
+      this.sort = new ArrayList<String>();
+    }
+    this.sort.add(sortItem);
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @Schema(description = "")
+  public List<String> getSort() {
+    return sort;
+  }
+
+  public void setSort(List<String> sort) {
+    this.sort = sort;
   }
 
 
@@ -78,24 +111,26 @@ public class CompanyContacts {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CompanyContacts companyContacts = (CompanyContacts) o;
-    return Objects.equals(this.email, companyContacts.email) &&
-        Objects.equals(this.website, companyContacts.website);
+    Pageable pageable = (Pageable) o;
+    return Objects.equals(this.page, pageable.page) &&
+        Objects.equals(this.size, pageable.size) &&
+        Objects.equals(this.sort, pageable.sort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, website);
+    return Objects.hash(page, size, sort);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CompanyContacts {\n");
+    sb.append("class Pageable {\n");
     
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    website: ").append(toIndentedString(website)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("}");
     return sb.toString();
   }

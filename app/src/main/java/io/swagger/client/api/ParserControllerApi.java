@@ -26,8 +26,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.Company;
-import io.swagger.client.model.Pageable;
+import io.swagger.client.model.CompanyV2;
+import io.swagger.client.model.VacancyV2;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -35,14 +35,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CompanyControllerApi {
+public class ParserControllerApi {
     private ApiClient apiClient;
 
-    public CompanyControllerApi() {
+    public ParserControllerApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public CompanyControllerApi(ApiClient apiClient) {
+    public ParserControllerApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -55,268 +55,19 @@ public class CompanyControllerApi {
     }
 
     /**
-     * Build call for createCompany
-     * @param body  (required)
+     * Build call for findCompanyV2ById
+     * @param naturalId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createCompanyCall(Company body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/api/v1/company";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/hal+json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createCompanyValidateBeforeCall(Company body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createCompany(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = createCompanyCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Add a new company
-     * 
-     * @param body  (required)
-     * @return Company
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Company createCompany(Company body) throws ApiException {
-        ApiResponse<Company> resp = createCompanyWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * Add a new company
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;Company&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Company> createCompanyWithHttpInfo(Company body) throws ApiException {
-        com.squareup.okhttp.Call call = createCompanyValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Company>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Add a new company (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call createCompanyAsync(Company body, final ApiCallback<Company> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = createCompanyValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Company>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for deleteById
-     * @param id  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call deleteByIdCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findCompanyV2ByIdCall(Integer naturalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v1/company/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/hal+json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteByIdValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteById(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = deleteByIdCall(id, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Deletes a company
-     * 
-     * @param id  (required)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Object deleteById(Long id) throws ApiException {
-        ApiResponse<Object> resp = deleteByIdWithHttpInfo(id);
-        return resp.getData();
-    }
-
-    /**
-     * Deletes a company
-     * 
-     * @param id  (required)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Object> deleteByIdWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = deleteByIdValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Deletes a company (asynchronously)
-     * 
-     * @param id  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteByIdAsync(Long id, final ApiCallback<Object> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteByIdValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for findById
-     * @param id  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call findByIdCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/api/v1/company/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/api/v1/parser/companies/{naturalId}"
+            .replaceAll("\\{" + "naturalId" + "\\}", apiClient.escapeString(naturalId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -354,13 +105,13 @@ public class CompanyControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call findByIdValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling findById(Async)");
+    private com.squareup.okhttp.Call findCompanyV2ByIdValidateBeforeCall(Integer naturalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'naturalId' is set
+        if (naturalId == null) {
+            throw new ApiException("Missing the required parameter 'naturalId' when calling findCompanyV2ById(Async)");
         }
         
-        com.squareup.okhttp.Call call = findByIdCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findCompanyV2ByIdCall(naturalId, progressListener, progressRequestListener);
         return call;
 
         
@@ -370,39 +121,39 @@ public class CompanyControllerApi {
     }
 
     /**
-     * Find company by ID
+     * Find a company by a natural id
      * 
-     * @param id  (required)
-     * @return Company
+     * @param naturalId  (required)
+     * @return CompanyV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Company findById(Long id) throws ApiException {
-        ApiResponse<Company> resp = findByIdWithHttpInfo(id);
+    public CompanyV2 findCompanyV2ById(Integer naturalId) throws ApiException {
+        ApiResponse<CompanyV2> resp = findCompanyV2ByIdWithHttpInfo(naturalId);
         return resp.getData();
     }
 
     /**
-     * Find company by ID
+     * Find a company by a natural id
      * 
-     * @param id  (required)
-     * @return ApiResponse&lt;Company&gt;
+     * @param naturalId  (required)
+     * @return ApiResponse&lt;CompanyV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Company> findByIdWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = findByIdValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<Company>(){}.getType();
+    public ApiResponse<CompanyV2> findCompanyV2ByIdWithHttpInfo(Integer naturalId) throws ApiException {
+        com.squareup.okhttp.Call call = findCompanyV2ByIdValidateBeforeCall(naturalId, null, null);
+        Type localVarReturnType = new TypeToken<CompanyV2>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Find company by ID (asynchronously)
+     * Find a company by a natural id (asynchronously)
      * 
-     * @param id  (required)
+     * @param naturalId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call findByIdAsync(Long id, final ApiCallback<Company> callback) throws ApiException {
+    public com.squareup.okhttp.Call findCompanyV2ByIdAsync(Integer naturalId, final ApiCallback<CompanyV2> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -423,29 +174,28 @@ public class CompanyControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = findByIdValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Company>(){}.getType();
+        com.squareup.okhttp.Call call = findCompanyV2ByIdValidateBeforeCall(naturalId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CompanyV2>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getList
-     * @param pageable  (required)
+     * Build call for findVacancyV2Id
+     * @param naturalId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListCall(Pageable pageable, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findVacancyV2IdCall(Integer naturalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/v1/company";
+        String localVarPath = "/api/v1/parser/vacancies/{naturalId}"
+            .replaceAll("\\{" + "naturalId" + "\\}", apiClient.escapeString(naturalId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (pageable != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("pageable", pageable));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -480,13 +230,13 @@ public class CompanyControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getListValidateBeforeCall(Pageable pageable, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'pageable' is set
-        if (pageable == null) {
-            throw new ApiException("Missing the required parameter 'pageable' when calling getList(Async)");
+    private com.squareup.okhttp.Call findVacancyV2IdValidateBeforeCall(Integer naturalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'naturalId' is set
+        if (naturalId == null) {
+            throw new ApiException("Missing the required parameter 'naturalId' when calling findVacancyV2Id(Async)");
         }
         
-        com.squareup.okhttp.Call call = getListCall(pageable, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findVacancyV2IdCall(naturalId, progressListener, progressRequestListener);
         return call;
 
         
@@ -496,39 +246,39 @@ public class CompanyControllerApi {
     }
 
     /**
-     * Return all companies
+     * Find a vacancy by a natural id
      * 
-     * @param pageable  (required)
-     * @return Object
+     * @param naturalId  (required)
+     * @return VacancyV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getList(Pageable pageable) throws ApiException {
-        ApiResponse<Object> resp = getListWithHttpInfo(pageable);
+    public VacancyV2 findVacancyV2Id(Integer naturalId) throws ApiException {
+        ApiResponse<VacancyV2> resp = findVacancyV2IdWithHttpInfo(naturalId);
         return resp.getData();
     }
 
     /**
-     * Return all companies
+     * Find a vacancy by a natural id
      * 
-     * @param pageable  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @param naturalId  (required)
+     * @return ApiResponse&lt;VacancyV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getListWithHttpInfo(Pageable pageable) throws ApiException {
-        com.squareup.okhttp.Call call = getListValidateBeforeCall(pageable, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+    public ApiResponse<VacancyV2> findVacancyV2IdWithHttpInfo(Integer naturalId) throws ApiException {
+        com.squareup.okhttp.Call call = findVacancyV2IdValidateBeforeCall(naturalId, null, null);
+        Type localVarReturnType = new TypeToken<VacancyV2>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Return all companies (asynchronously)
+     * Find a vacancy by a natural id (asynchronously)
      * 
-     * @param pageable  (required)
+     * @param naturalId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getListAsync(Pageable pageable, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call findVacancyV2IdAsync(Integer naturalId, final ApiCallback<VacancyV2> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -549,26 +299,24 @@ public class CompanyControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getListValidateBeforeCall(pageable, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        com.squareup.okhttp.Call call = findVacancyV2IdValidateBeforeCall(naturalId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<VacancyV2>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for updateById
+     * Build call for updateById5
      * @param body  (required)
-     * @param id  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateByIdCall(Company body, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateById5Call(CompanyV2 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/v1/company/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/api/v1/parser/companies";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -606,17 +354,13 @@ public class CompanyControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateByIdValidateBeforeCall(Company body, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateById5ValidateBeforeCall(CompanyV2 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling updateById(Async)");
-        }
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateById(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling updateById5(Async)");
         }
         
-        com.squareup.okhttp.Call call = updateByIdCall(body, id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateById5Call(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -626,42 +370,39 @@ public class CompanyControllerApi {
     }
 
     /**
-     * Update an existing company
+     * Update or create a company
      * 
      * @param body  (required)
-     * @param id  (required)
-     * @return Company
+     * @return CompanyV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Company updateById(Company body, Long id) throws ApiException {
-        ApiResponse<Company> resp = updateByIdWithHttpInfo(body, id);
+    public CompanyV2 updateById5(CompanyV2 body) throws ApiException {
+        ApiResponse<CompanyV2> resp = updateById5WithHttpInfo(body);
         return resp.getData();
     }
 
     /**
-     * Update an existing company
+     * Update or create a company
      * 
      * @param body  (required)
-     * @param id  (required)
-     * @return ApiResponse&lt;Company&gt;
+     * @return ApiResponse&lt;CompanyV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Company> updateByIdWithHttpInfo(Company body, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = updateByIdValidateBeforeCall(body, id, null, null);
-        Type localVarReturnType = new TypeToken<Company>(){}.getType();
+    public ApiResponse<CompanyV2> updateById5WithHttpInfo(CompanyV2 body) throws ApiException {
+        com.squareup.okhttp.Call call = updateById5ValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CompanyV2>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Update an existing company (asynchronously)
+     * Update or create a company (asynchronously)
      * 
      * @param body  (required)
-     * @param id  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateByIdAsync(Company body, Long id, final ApiCallback<Company> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateById5Async(CompanyV2 body, final ApiCallback<CompanyV2> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -682,8 +423,132 @@ public class CompanyControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateByIdValidateBeforeCall(body, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Company>(){}.getType();
+        com.squareup.okhttp.Call call = updateById5ValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CompanyV2>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateById6
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateById6Call(VacancyV2 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/v1/parser/vacancies";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/hal+json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateById6ValidateBeforeCall(VacancyV2 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateById6(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateById6Call(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Update or create a vacancy
+     * 
+     * @param body  (required)
+     * @return VacancyV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VacancyV2 updateById6(VacancyV2 body) throws ApiException {
+        ApiResponse<VacancyV2> resp = updateById6WithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * Update or create a vacancy
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;VacancyV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VacancyV2> updateById6WithHttpInfo(VacancyV2 body) throws ApiException {
+        com.squareup.okhttp.Call call = updateById6ValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<VacancyV2>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update or create a vacancy (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateById6Async(VacancyV2 body, final ApiCallback<VacancyV2> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateById6ValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<VacancyV2>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -20,18 +20,21 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.client.model.Company;
-import io.swagger.client.model.VacancyContacts;
+import io.swagger.client.model.VacancyContactsV2;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 /**
- * Vacancy
+ * VacancyV2
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-12T13:09:32.394+03:00[Europe/Moscow]")
-public class Vacancy {
+public class VacancyV2 {
   @SerializedName("vacancyId")
   private Long vacancyId = null;
+
+  @SerializedName("naturalId")
+  private Integer naturalId = null;
 
   @SerializedName("name")
   private String name = null;
@@ -88,12 +91,12 @@ public class Vacancy {
   private Integer responses = null;
 
   @SerializedName("contacts")
-  private VacancyContacts contacts = null;
+  private VacancyContactsV2 contacts = null;
 
   @SerializedName("company")
   private Company company = null;
 
-  public Vacancy vacancyId(Long vacancyId) {
+  public VacancyV2 vacancyId(Long vacancyId) {
     this.vacancyId = vacancyId;
     return this;
   }
@@ -111,7 +114,25 @@ public class Vacancy {
     this.vacancyId = vacancyId;
   }
 
-  public Vacancy name(String name) {
+  public VacancyV2 naturalId(Integer naturalId) {
+    this.naturalId = naturalId;
+    return this;
+  }
+
+   /**
+   * Get naturalId
+   * @return naturalId
+  **/
+  @Schema(description = "")
+  public Integer getNaturalId() {
+    return naturalId;
+  }
+
+  public void setNaturalId(Integer naturalId) {
+    this.naturalId = naturalId;
+  }
+
+  public VacancyV2 name(String name) {
     this.name = name;
     return this;
   }
@@ -129,7 +150,7 @@ public class Vacancy {
     this.name = name;
   }
 
-  public Vacancy position(String position) {
+  public VacancyV2 position(String position) {
     this.position = position;
     return this;
   }
@@ -147,7 +168,7 @@ public class Vacancy {
     this.position = position;
   }
 
-  public Vacancy industry(String industry) {
+  public VacancyV2 industry(String industry) {
     this.industry = industry;
     return this;
   }
@@ -165,7 +186,7 @@ public class Vacancy {
     this.industry = industry;
   }
 
-  public Vacancy responsibilities(String responsibilities) {
+  public VacancyV2 responsibilities(String responsibilities) {
     this.responsibilities = responsibilities;
     return this;
   }
@@ -183,7 +204,7 @@ public class Vacancy {
     this.responsibilities = responsibilities;
   }
 
-  public Vacancy requirements(String requirements) {
+  public VacancyV2 requirements(String requirements) {
     this.requirements = requirements;
     return this;
   }
@@ -201,7 +222,7 @@ public class Vacancy {
     this.requirements = requirements;
   }
 
-  public Vacancy skills(String skills) {
+  public VacancyV2 skills(String skills) {
     this.skills = skills;
     return this;
   }
@@ -219,7 +240,7 @@ public class Vacancy {
     this.skills = skills;
   }
 
-  public Vacancy publicationDate(OffsetDateTime publicationDate) {
+  public VacancyV2 publicationDate(OffsetDateTime publicationDate) {
     this.publicationDate = publicationDate;
     return this;
   }
@@ -237,7 +258,7 @@ public class Vacancy {
     this.publicationDate = publicationDate;
   }
 
-  public Vacancy closingDate(OffsetDateTime closingDate) {
+  public VacancyV2 closingDate(OffsetDateTime closingDate) {
     this.closingDate = closingDate;
     return this;
   }
@@ -255,7 +276,7 @@ public class Vacancy {
     this.closingDate = closingDate;
   }
 
-  public Vacancy salary(Integer salary) {
+  public VacancyV2 salary(Integer salary) {
     this.salary = salary;
     return this;
   }
@@ -273,7 +294,7 @@ public class Vacancy {
     this.salary = salary;
   }
 
-  public Vacancy city(String city) {
+  public VacancyV2 city(String city) {
     this.city = city;
     return this;
   }
@@ -291,7 +312,7 @@ public class Vacancy {
     this.city = city;
   }
 
-  public Vacancy isRemote(Boolean isRemote) {
+  public VacancyV2 isRemote(Boolean isRemote) {
     this.isRemote = isRemote;
     return this;
   }
@@ -309,7 +330,7 @@ public class Vacancy {
     this.isRemote = isRemote;
   }
 
-  public Vacancy isRelocate(Boolean isRelocate) {
+  public VacancyV2 isRelocate(Boolean isRelocate) {
     this.isRelocate = isRelocate;
     return this;
   }
@@ -327,7 +348,7 @@ public class Vacancy {
     this.isRelocate = isRelocate;
   }
 
-  public Vacancy optionalRequirements(String optionalRequirements) {
+  public VacancyV2 optionalRequirements(String optionalRequirements) {
     this.optionalRequirements = optionalRequirements;
     return this;
   }
@@ -345,7 +366,7 @@ public class Vacancy {
     this.optionalRequirements = optionalRequirements;
   }
 
-  public Vacancy benefits(String benefits) {
+  public VacancyV2 benefits(String benefits) {
     this.benefits = benefits;
     return this;
   }
@@ -363,7 +384,7 @@ public class Vacancy {
     this.benefits = benefits;
   }
 
-  public Vacancy description(String description) {
+  public VacancyV2 description(String description) {
     this.description = description;
     return this;
   }
@@ -381,7 +402,7 @@ public class Vacancy {
     this.description = description;
   }
 
-  public Vacancy resource(String resource) {
+  public VacancyV2 resource(String resource) {
     this.resource = resource;
     return this;
   }
@@ -399,7 +420,7 @@ public class Vacancy {
     this.resource = resource;
   }
 
-  public Vacancy views(Integer views) {
+  public VacancyV2 views(Integer views) {
     this.views = views;
     return this;
   }
@@ -417,7 +438,7 @@ public class Vacancy {
     this.views = views;
   }
 
-  public Vacancy responses(Integer responses) {
+  public VacancyV2 responses(Integer responses) {
     this.responses = responses;
     return this;
   }
@@ -435,7 +456,7 @@ public class Vacancy {
     this.responses = responses;
   }
 
-  public Vacancy contacts(VacancyContacts contacts) {
+  public VacancyV2 contacts(VacancyContactsV2 contacts) {
     this.contacts = contacts;
     return this;
   }
@@ -445,15 +466,15 @@ public class Vacancy {
    * @return contacts
   **/
   @Schema(description = "")
-  public VacancyContacts getContacts() {
+  public VacancyContactsV2 getContacts() {
     return contacts;
   }
 
-  public void setContacts(VacancyContacts contacts) {
+  public void setContacts(VacancyContactsV2 contacts) {
     this.contacts = contacts;
   }
 
-  public Vacancy company(Company company) {
+  public VacancyV2 company(Company company) {
     this.company = company;
     return this;
   }
@@ -480,42 +501,44 @@ public class Vacancy {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Vacancy vacancy = (Vacancy) o;
-    return Objects.equals(this.vacancyId, vacancy.vacancyId) &&
-        Objects.equals(this.name, vacancy.name) &&
-        Objects.equals(this.position, vacancy.position) &&
-        Objects.equals(this.industry, vacancy.industry) &&
-        Objects.equals(this.responsibilities, vacancy.responsibilities) &&
-        Objects.equals(this.requirements, vacancy.requirements) &&
-        Objects.equals(this.skills, vacancy.skills) &&
-        Objects.equals(this.publicationDate, vacancy.publicationDate) &&
-        Objects.equals(this.closingDate, vacancy.closingDate) &&
-        Objects.equals(this.salary, vacancy.salary) &&
-        Objects.equals(this.city, vacancy.city) &&
-        Objects.equals(this.isRemote, vacancy.isRemote) &&
-        Objects.equals(this.isRelocate, vacancy.isRelocate) &&
-        Objects.equals(this.optionalRequirements, vacancy.optionalRequirements) &&
-        Objects.equals(this.benefits, vacancy.benefits) &&
-        Objects.equals(this.description, vacancy.description) &&
-        Objects.equals(this.resource, vacancy.resource) &&
-        Objects.equals(this.views, vacancy.views) &&
-        Objects.equals(this.responses, vacancy.responses) &&
-        Objects.equals(this.contacts, vacancy.contacts) &&
-        Objects.equals(this.company, vacancy.company);
+    VacancyV2 vacancyV2 = (VacancyV2) o;
+    return Objects.equals(this.vacancyId, vacancyV2.vacancyId) &&
+        Objects.equals(this.naturalId, vacancyV2.naturalId) &&
+        Objects.equals(this.name, vacancyV2.name) &&
+        Objects.equals(this.position, vacancyV2.position) &&
+        Objects.equals(this.industry, vacancyV2.industry) &&
+        Objects.equals(this.responsibilities, vacancyV2.responsibilities) &&
+        Objects.equals(this.requirements, vacancyV2.requirements) &&
+        Objects.equals(this.skills, vacancyV2.skills) &&
+        Objects.equals(this.publicationDate, vacancyV2.publicationDate) &&
+        Objects.equals(this.closingDate, vacancyV2.closingDate) &&
+        Objects.equals(this.salary, vacancyV2.salary) &&
+        Objects.equals(this.city, vacancyV2.city) &&
+        Objects.equals(this.isRemote, vacancyV2.isRemote) &&
+        Objects.equals(this.isRelocate, vacancyV2.isRelocate) &&
+        Objects.equals(this.optionalRequirements, vacancyV2.optionalRequirements) &&
+        Objects.equals(this.benefits, vacancyV2.benefits) &&
+        Objects.equals(this.description, vacancyV2.description) &&
+        Objects.equals(this.resource, vacancyV2.resource) &&
+        Objects.equals(this.views, vacancyV2.views) &&
+        Objects.equals(this.responses, vacancyV2.responses) &&
+        Objects.equals(this.contacts, vacancyV2.contacts) &&
+        Objects.equals(this.company, vacancyV2.company);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vacancyId, name, position, industry, responsibilities, requirements, skills, publicationDate, closingDate, salary, city, isRemote, isRelocate, optionalRequirements, benefits, description, resource, views, responses, contacts, company);
+    return Objects.hash(vacancyId, naturalId, name, position, industry, responsibilities, requirements, skills, publicationDate, closingDate, salary, city, isRemote, isRelocate, optionalRequirements, benefits, description, resource, views, responses, contacts, company);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Vacancy {\n");
+    sb.append("class VacancyV2 {\n");
     
     sb.append("    vacancyId: ").append(toIndentedString(vacancyId)).append("\n");
+    sb.append("    naturalId: ").append(toIndentedString(naturalId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");

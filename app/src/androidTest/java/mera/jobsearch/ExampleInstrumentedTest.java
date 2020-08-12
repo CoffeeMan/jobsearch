@@ -1,12 +1,17 @@
-package mera.jobsearch
+package mera.jobsearch;
 
 import android.content.Context;
 
-import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.List;
+
+import io.swagger.client.api.VacancyControllerApi;
+import io.swagger.client.model.Vacancy;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +25,21 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Context appContext = ApplicationProvider.getApplicationContext();
         assertEquals("mera.jobsearch", appContext.getPackageName());
+    }
+
+    @Test
+    public void getVacationsTest() {
+
+        try {
+            VacancyControllerApi api = new VacancyControllerApi();
+            List<Vacancy> vacancyList = api.getList1();
+            assertTrue("There are vacancies", vacancyList.size()>0);
+        }catch (Throwable e){
+
+        }
+
+
     }
 }

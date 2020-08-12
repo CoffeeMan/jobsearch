@@ -19,18 +19,21 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.CompanyContacts;
+import io.swagger.client.model.CompanyContactsV2;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 /**
- * Company
+ * CompanyV2
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-12T13:09:32.394+03:00[Europe/Moscow]")
-public class Company {
+public class CompanyV2 {
   @SerializedName("companyId")
   private Long companyId = null;
+
+  @SerializedName("naturalId")
+  private Integer naturalId = null;
 
   @SerializedName("name")
   private String name = null;
@@ -48,9 +51,9 @@ public class Company {
   private OffsetDateTime foundationDate = null;
 
   @SerializedName("contacts")
-  private CompanyContacts contacts = null;
+  private CompanyContactsV2 contacts = null;
 
-  public Company companyId(Long companyId) {
+  public CompanyV2 companyId(Long companyId) {
     this.companyId = companyId;
     return this;
   }
@@ -68,7 +71,25 @@ public class Company {
     this.companyId = companyId;
   }
 
-  public Company name(String name) {
+  public CompanyV2 naturalId(Integer naturalId) {
+    this.naturalId = naturalId;
+    return this;
+  }
+
+   /**
+   * Get naturalId
+   * @return naturalId
+  **/
+  @Schema(description = "")
+  public Integer getNaturalId() {
+    return naturalId;
+  }
+
+  public void setNaturalId(Integer naturalId) {
+    this.naturalId = naturalId;
+  }
+
+  public CompanyV2 name(String name) {
     this.name = name;
     return this;
   }
@@ -86,7 +107,7 @@ public class Company {
     this.name = name;
   }
 
-  public Company industry(String industry) {
+  public CompanyV2 industry(String industry) {
     this.industry = industry;
     return this;
   }
@@ -104,7 +125,7 @@ public class Company {
     this.industry = industry;
   }
 
-  public Company description(String description) {
+  public CompanyV2 description(String description) {
     this.description = description;
     return this;
   }
@@ -122,7 +143,7 @@ public class Company {
     this.description = description;
   }
 
-  public Company city(String city) {
+  public CompanyV2 city(String city) {
     this.city = city;
     return this;
   }
@@ -140,7 +161,7 @@ public class Company {
     this.city = city;
   }
 
-  public Company foundationDate(OffsetDateTime foundationDate) {
+  public CompanyV2 foundationDate(OffsetDateTime foundationDate) {
     this.foundationDate = foundationDate;
     return this;
   }
@@ -158,7 +179,7 @@ public class Company {
     this.foundationDate = foundationDate;
   }
 
-  public Company contacts(CompanyContacts contacts) {
+  public CompanyV2 contacts(CompanyContactsV2 contacts) {
     this.contacts = contacts;
     return this;
   }
@@ -168,11 +189,11 @@ public class Company {
    * @return contacts
   **/
   @Schema(description = "")
-  public CompanyContacts getContacts() {
+  public CompanyContactsV2 getContacts() {
     return contacts;
   }
 
-  public void setContacts(CompanyContacts contacts) {
+  public void setContacts(CompanyContactsV2 contacts) {
     this.contacts = contacts;
   }
 
@@ -185,28 +206,30 @@ public class Company {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Company company = (Company) o;
-    return Objects.equals(this.companyId, company.companyId) &&
-        Objects.equals(this.name, company.name) &&
-        Objects.equals(this.industry, company.industry) &&
-        Objects.equals(this.description, company.description) &&
-        Objects.equals(this.city, company.city) &&
-        Objects.equals(this.foundationDate, company.foundationDate) &&
-        Objects.equals(this.contacts, company.contacts);
+    CompanyV2 companyV2 = (CompanyV2) o;
+    return Objects.equals(this.companyId, companyV2.companyId) &&
+        Objects.equals(this.naturalId, companyV2.naturalId) &&
+        Objects.equals(this.name, companyV2.name) &&
+        Objects.equals(this.industry, companyV2.industry) &&
+        Objects.equals(this.description, companyV2.description) &&
+        Objects.equals(this.city, companyV2.city) &&
+        Objects.equals(this.foundationDate, companyV2.foundationDate) &&
+        Objects.equals(this.contacts, companyV2.contacts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyId, name, industry, description, city, foundationDate, contacts);
+    return Objects.hash(companyId, naturalId, name, industry, description, city, foundationDate, contacts);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Company {\n");
+    sb.append("class CompanyV2 {\n");
     
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
+    sb.append("    naturalId: ").append(toIndentedString(naturalId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

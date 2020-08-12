@@ -2,7 +2,9 @@ package mera.jobsearch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -16,8 +18,16 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
+import java.util.List;
+
+import io.swagger.client.api.CvControllerApi;
+import io.swagger.client.api.VacancyControllerApi;
+import io.swagger.client.model.Pageable;
+import io.swagger.client.model.Vacancy;
+
 public class Home_screenActivity extends AppCompatActivity {
  private FloatingActionButton add_vacation;
+ private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +39,7 @@ public class Home_screenActivity extends AppCompatActivity {
         if (toolbar != null){
             setSupportActionBar(toolbar);
         }
-        addListenerOnButton();
+        addListenerOnButtons();
         Drawer.Result drawerResult = new Drawer()//Боковое меню
                 .withActivity(this)
                 .withToolbar(toolbar)
@@ -78,7 +88,7 @@ public class Home_screenActivity extends AppCompatActivity {
 
 
     }
-    private void addListenerOnButton(){
+    private void addListenerOnButtons(){
         add_vacation=(FloatingActionButton)findViewById(R.id.add_vacation);
         add_vacation.setOnClickListener(
             new View.OnClickListener(){
@@ -90,8 +100,40 @@ public class Home_screenActivity extends AppCompatActivity {
             }
         );
 
+        button2=(Button)findViewById(R.id.button2);
+        button2.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
 
+
+                        new AsyncRequest().execute();
+
+
+                    }
+                }
+        );
     }
 
+    class AsyncRequest extends AsyncTask<Void, Void, Integer> {
+
+
+        @Override
+        protected Integer doInBackground(Void... voids) {
+            try {
+
+            VacancyControllerApi api = new VacancyControllerApi();
+            api.getApiClient().setBasePath("http://188.130.168.107:8080");
+            Pageable pageable = new Pageable();
+            pageable.setPage(0);
+            pageable.setSize(2);
+            Object o = api.getList1(pageable);
+
+            return 0;
+            }catch (Throwable e) {
+                return -1;
+            }
+        }
+    }
 
 }

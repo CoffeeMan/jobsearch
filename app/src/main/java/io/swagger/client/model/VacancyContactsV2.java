@@ -22,18 +22,21 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * CompanyContacts
+ * VacancyContactsV2
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-12T13:09:32.394+03:00[Europe/Moscow]")
-public class CompanyContacts {
+public class VacancyContactsV2 {
   @SerializedName("email")
   private String email = null;
 
   @SerializedName("website")
   private String website = null;
 
-  public CompanyContacts email(String email) {
+  @SerializedName("phone")
+  private String phone = null;
+
+  public VacancyContactsV2 email(String email) {
     this.email = email;
     return this;
   }
@@ -51,7 +54,7 @@ public class CompanyContacts {
     this.email = email;
   }
 
-  public CompanyContacts website(String website) {
+  public VacancyContactsV2 website(String website) {
     this.website = website;
     return this;
   }
@@ -69,6 +72,24 @@ public class CompanyContacts {
     this.website = website;
   }
 
+  public VacancyContactsV2 phone(String phone) {
+    this.phone = phone;
+    return this;
+  }
+
+   /**
+   * Get phone
+   * @return phone
+  **/
+  @Schema(description = "")
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -78,24 +99,26 @@ public class CompanyContacts {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CompanyContacts companyContacts = (CompanyContacts) o;
-    return Objects.equals(this.email, companyContacts.email) &&
-        Objects.equals(this.website, companyContacts.website);
+    VacancyContactsV2 vacancyContactsV2 = (VacancyContactsV2) o;
+    return Objects.equals(this.email, vacancyContactsV2.email) &&
+        Objects.equals(this.website, vacancyContactsV2.website) &&
+        Objects.equals(this.phone, vacancyContactsV2.phone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, website);
+    return Objects.hash(email, website, phone);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CompanyContacts {\n");
+    sb.append("class VacancyContactsV2 {\n");
     
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    website: ").append(toIndentedString(website)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("}");
     return sb.toString();
   }
