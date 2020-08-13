@@ -2,7 +2,6 @@ package mera.jobsearch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,19 +10,16 @@ import android.widget.*;
 import androidx.appcompat.widget.Toolbar;
 
 
-import com.melnykov.fab.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
-import java.util.List;
-
-import io.swagger.client.api.CvControllerApi;
-import io.swagger.client.api.VacancyControllerApi;
-import io.swagger.client.model.Pageable;
-import io.swagger.client.model.Vacancy;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.EmployeeControllerApi;
+import io.swagger.client.model.Employee;
 
 public class Home_screenActivity extends AppCompatActivity {
  private FloatingActionButton add_vacation;
@@ -115,24 +111,47 @@ public class Home_screenActivity extends AppCompatActivity {
         );
     }
 
-    class AsyncRequest extends AsyncTask<Void, Void, Integer> {
-
+    class AsyncRequest extends AsyncTask<Void, Employee, Void> {
 
         @Override
-        protected Integer doInBackground(Void... voids) {
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //Toast.makeText(Home_screenActivity.this, "Start", Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        protected Void doInBackground(Void... voids) {
             try {
 
-            VacancyControllerApi api = new VacancyControllerApi();
-            api.getApiClient().setBasePath("http://188.130.168.107:8080");
-            Pageable pageable = new Pageable();
+            //VacancyControllerApi api = new VacancyControllerApi();
+                EmployeeControllerApi api = new EmployeeControllerApi();
+                api.getApiClient().setBasePath("http://188.130.168.107:8080");
+            /*Pageable pageable = new Pageable();
             pageable.setPage(0);
             pageable.setSize(2);
-            Object o = api.getList1(pageable);
+            Object o = api.getList1(pageable);*/
+            long id = 84;
+                try {
+                    Employee result = api.findById3(id);
+                    publishProgress(result);
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
 
-            return 0;
             }catch (Throwable e) {
-                return -1;
+                e.printStackTrace();
             }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Employee... employees) {
+            super.onProgressUpdate(employees);
+            Toast.makeText(Home_screenActivity.this, employees[0].getName(), Toast.LENGTH_LONG).show();
+        }
+        @Override
+        protected void onPostExecute(Void result){
+            super.onPostExecute(result);
+            //Toast.makeText(Home_screenActivity.this, "lol", Toast.LENGTH_SHORT).show();
         }
     }
 

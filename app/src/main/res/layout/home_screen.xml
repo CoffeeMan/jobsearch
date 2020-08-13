@@ -28,16 +28,16 @@
 
     </LinearLayout>
 
-    <com.melnykov.fab.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_vacation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
+
+        android:backgroundTint="#3E86FA"
         android:src="@drawable/ic_action_content_new"
-        fab:fab_colorNormal="#3E86FA"
-        fab:fab_colorPressed="#4db6ac"
-        fab:fab_colorRipple="#4db6ac" />
+        fab:rippleColor="#2196F3" />
 
 
 </FrameLayout>
