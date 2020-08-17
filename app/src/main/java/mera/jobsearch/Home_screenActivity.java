@@ -17,6 +17,9 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.swagger.client.ApiException;
 import io.swagger.client.api.EmployeeControllerApi;
 import io.swagger.client.model.Employee;
@@ -24,12 +27,14 @@ import io.swagger.client.model.Employee;
 public class Home_screenActivity extends AppCompatActivity {
  private FloatingActionButton add_vacation;
  private Button button2;
+ private List<VacansyList> vacansyLists = new ArrayList();
+ ListView myList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-
+        setInitialData();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//toolbar по material design
         if (toolbar != null){
@@ -78,9 +83,18 @@ public class Home_screenActivity extends AppCompatActivity {
                 })
                 .build();
 
-
-
-
+                myList = (ListView) findViewById(R.id.list);
+                VacansyAdapter vacansyAdapter = new VacansyAdapter(this, R.layout.list_item, vacansyLists);
+                myList.setAdapter(vacansyAdapter);
+                AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                        VacansyList selectedVacancy = (VacansyList)parent.getItemAtPosition(position);
+                        Toast.makeText(getApplicationContext(), "Был выбран пункт " + selectedVacancy.getVacansyName(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                };
+            myList.setOnItemClickListener(itemListener);
 
 
     }
@@ -122,7 +136,7 @@ public class Home_screenActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try {
 
-            //VacancyControllerApi api = new VacancyControllerApi();
+
                 EmployeeControllerApi api = new EmployeeControllerApi();
                 api.getApiClient().setBasePath("http://188.130.168.107:8080");
             /*Pageable pageable = new Pageable();
@@ -155,4 +169,11 @@ public class Home_screenActivity extends AppCompatActivity {
         }
     }
 
+    private void setInitialData(){
+        vacansyLists.add(new VacansyList("Стажёр", "Mera", "10000"));
+        vacansyLists.add(new VacansyList("Джун", "Mera", "15000"));
+        vacansyLists.add(new VacansyList("Мидл", "Mera", "20000"));
+        vacansyLists.add(new VacansyList("Сеньор", "Mera", "25000"));
+        vacansyLists.add(new VacansyList("Менеджер", "Mera", "30000"));
+    }
 }
