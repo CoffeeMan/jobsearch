@@ -22,9 +22,13 @@ import java.util.List;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.api.EmployeeControllerApi;
+import io.swagger.client.api.VacancyControllerApi;
 import io.swagger.client.model.Employee;
+import io.swagger.client.model.Pageable;
+import io.swagger.client.model.Vacancy;
 import mera.jobsearch.adapters.VacansyAdapter;
 import mera.jobsearch.adapters.VacansyList;
+
 
 public class Home_screenActivity extends AppCompatActivity {
     private FloatingActionButton add_vacation;
@@ -82,7 +86,7 @@ public class Home_screenActivity extends AppCompatActivity {
                     public void onClick(View view) {
 
 
-                        new requestVacancy().execute();
+                        new employeeById().execute();
 
 
                     }
@@ -90,7 +94,9 @@ public class Home_screenActivity extends AppCompatActivity {
         );
     }
 
-    class requestVacancy extends AsyncTask<Void, Employee, Void> {
+
+
+    public class employeeById extends AsyncTask<Void, Employee, Void> {//работает для поиска по id, переделать, чтобы на вход long
 
         @Override
         protected void onPreExecute() {
@@ -105,11 +111,8 @@ public class Home_screenActivity extends AppCompatActivity {
 
                 EmployeeControllerApi api = new EmployeeControllerApi();
                 api.getApiClient().setBasePath("http://188.130.168.107:8080");
-            /*Pageable pageable = new Pageable();
-            pageable.setPage(0);
-            pageable.setSize(2);
-            Object o = api.getList1(pageable);*/
-                long id = 84;
+
+                long id = 179;
                 try {
                     Employee result = api.findById3(id);
                     publishProgress(result);
@@ -123,6 +126,8 @@ public class Home_screenActivity extends AppCompatActivity {
             return null;
         }
 
+
+
         @Override
         protected void onProgressUpdate(Employee... employees) {
             super.onProgressUpdate(employees);
@@ -135,8 +140,56 @@ public class Home_screenActivity extends AppCompatActivity {
             //Toast.makeText(Home_screenActivity.this, "lol", Toast.LENGTH_SHORT).show();
         }
     }
+    //Тестовая хрень, надо выянсить причем здесь Object
+    /*public class allVacansy extends AsyncTask<Void, Object, Void> {
 
-    private void setInitialData() {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //Toast.makeText(Home_screenActivity.this, "Start", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+
+
+                VacancyControllerApi api = new VacancyControllerApi();
+                api.getApiClient().setBasePath("http://188.130.168.107:8080");
+
+
+                try {
+                    Pageable pageable = new Pageable();
+                    pageable.setPage(1);
+                    pageable.setSize(10);
+                    Object result = api.getList1(pageable);
+                    publishProgress(result);
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+
+
+        @Override
+        protected void onProgressUpdate(Object object) {
+            super.onProgressUpdate(object);
+            Toast.makeText(Home_screenActivity.this, "Hi", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            //Toast.makeText(Home_screenActivity.this, "lol", Toast.LENGTH_SHORT).show();
+        }
+    }*/
+
+    private void setInitialData() {//наполнение адаптера информацией, переделать под api
         vacansyLists.add(new VacansyList("Стажёр", "Mera", "10000"));
         vacansyLists.add(new VacansyList("Джун", "Mera", "15000"));
         vacansyLists.add(new VacansyList("Мидл", "Mera", "20000"));
