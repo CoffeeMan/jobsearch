@@ -1,4 +1,4 @@
-package mera.jobsearch;
+package mera.jobsearch.adapters;
 
 public class VacansyList {//Класс хранит информацию о вакансиях для адаптера
     private String vacansyName;
