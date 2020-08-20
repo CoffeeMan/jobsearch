@@ -19,21 +19,22 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.CompanyContacts;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 /**
- * Company
+ * Company2
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-20T17:46:18.738Z[GMT]")
-public class Company {
-  @SerializedName("foundationDate")
-  private OffsetDateTime foundationDate = null;
+public class Company2 {
+  @SerializedName("reference")
+  private String reference = null;
 
   @SerializedName("companyId")
   private Long companyId = null;
+
+  @SerializedName("website")
+  private String website = null;
 
   @SerializedName("city")
   private String city = null;
@@ -47,28 +48,28 @@ public class Company {
   @SerializedName("industry")
   private String industry = null;
 
-  @SerializedName("contacts")
-  private CompanyContacts contacts = null;
+  @SerializedName("email")
+  private String email = null;
 
-  public Company foundationDate(OffsetDateTime foundationDate) {
-    this.foundationDate = foundationDate;
+  public Company2 reference(String reference) {
+    this.reference = reference;
     return this;
   }
 
    /**
-   * Get foundationDate
-   * @return foundationDate
+   * Get reference
+   * @return reference
   **/
   @Schema(description = "")
-  public OffsetDateTime getFoundationDate() {
-    return foundationDate;
+  public String getReference() {
+    return reference;
   }
 
-  public void setFoundationDate(OffsetDateTime foundationDate) {
-    this.foundationDate = foundationDate;
+  public void setReference(String reference) {
+    this.reference = reference;
   }
 
-  public Company companyId(Long companyId) {
+  public Company2 companyId(Long companyId) {
     this.companyId = companyId;
     return this;
   }
@@ -86,7 +87,25 @@ public class Company {
     this.companyId = companyId;
   }
 
-  public Company city(String city) {
+  public Company2 website(String website) {
+    this.website = website;
+    return this;
+  }
+
+   /**
+   * Get website
+   * @return website
+  **/
+  @Schema(description = "")
+  public String getWebsite() {
+    return website;
+  }
+
+  public void setWebsite(String website) {
+    this.website = website;
+  }
+
+  public Company2 city(String city) {
     this.city = city;
     return this;
   }
@@ -104,7 +123,7 @@ public class Company {
     this.city = city;
   }
 
-  public Company name(String name) {
+  public Company2 name(String name) {
     this.name = name;
     return this;
   }
@@ -122,7 +141,7 @@ public class Company {
     this.name = name;
   }
 
-  public Company description(String description) {
+  public Company2 description(String description) {
     this.description = description;
     return this;
   }
@@ -140,7 +159,7 @@ public class Company {
     this.description = description;
   }
 
-  public Company industry(String industry) {
+  public Company2 industry(String industry) {
     this.industry = industry;
     return this;
   }
@@ -158,22 +177,22 @@ public class Company {
     this.industry = industry;
   }
 
-  public Company contacts(CompanyContacts contacts) {
-    this.contacts = contacts;
+  public Company2 email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Get contacts
-   * @return contacts
+   * Get email
+   * @return email
   **/
   @Schema(description = "")
-  public CompanyContacts getContacts() {
-    return contacts;
+  public String getEmail() {
+    return email;
   }
 
-  public void setContacts(CompanyContacts contacts) {
-    this.contacts = contacts;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -185,34 +204,36 @@ public class Company {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Company company = (Company) o;
-    return Objects.equals(this.foundationDate, company.foundationDate) &&
-        Objects.equals(this.companyId, company.companyId) &&
-        Objects.equals(this.city, company.city) &&
-        Objects.equals(this.name, company.name) &&
-        Objects.equals(this.description, company.description) &&
-        Objects.equals(this.industry, company.industry) &&
-        Objects.equals(this.contacts, company.contacts);
+    Company2 company2 = (Company2) o;
+    return Objects.equals(this.reference, company2.reference) &&
+        Objects.equals(this.companyId, company2.companyId) &&
+        Objects.equals(this.website, company2.website) &&
+        Objects.equals(this.city, company2.city) &&
+        Objects.equals(this.name, company2.name) &&
+        Objects.equals(this.description, company2.description) &&
+        Objects.equals(this.industry, company2.industry) &&
+        Objects.equals(this.email, company2.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(foundationDate, companyId, city, name, description, industry, contacts);
+    return Objects.hash(reference, companyId, website, city, name, description, industry, email);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Company {\n");
+    sb.append("class Company2 {\n");
     
-    sb.append("    foundationDate: ").append(toIndentedString(foundationDate)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
+    sb.append("    website: ").append(toIndentedString(website)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
-    sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");
     return sb.toString();
   }

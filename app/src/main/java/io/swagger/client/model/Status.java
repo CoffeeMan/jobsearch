@@ -21,52 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 /**
- * Link
+ * Status
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-20T17:46:18.738Z[GMT]")
-public class Link {
-  @SerializedName("templated")
-  private Boolean templated = null;
+public class Status {
+  @SerializedName("closeDate")
+  private OffsetDateTime closeDate = null;
 
-  @SerializedName("href")
-  private String href = null;
+  @SerializedName("pubDate")
+  private OffsetDateTime pubDate = null;
 
-  public Link templated(Boolean templated) {
-    this.templated = templated;
+  @SerializedName("open")
+  private Boolean open = null;
+
+  public Status closeDate(OffsetDateTime closeDate) {
+    this.closeDate = closeDate;
     return this;
   }
 
    /**
-   * Get templated
-   * @return templated
+   * Get closeDate
+   * @return closeDate
   **/
   @Schema(description = "")
-  public Boolean isTemplated() {
-    return templated;
+  public OffsetDateTime getCloseDate() {
+    return closeDate;
   }
 
-  public void setTemplated(Boolean templated) {
-    this.templated = templated;
+  public void setCloseDate(OffsetDateTime closeDate) {
+    this.closeDate = closeDate;
   }
 
-  public Link href(String href) {
-    this.href = href;
+  public Status pubDate(OffsetDateTime pubDate) {
+    this.pubDate = pubDate;
     return this;
   }
 
    /**
-   * Get href
-   * @return href
+   * Get pubDate
+   * @return pubDate
   **/
-  @Schema(description = "")
-  public String getHref() {
-    return href;
+  @Schema(required = true, description = "")
+  public OffsetDateTime getPubDate() {
+    return pubDate;
   }
 
-  public void setHref(String href) {
-    this.href = href;
+  public void setPubDate(OffsetDateTime pubDate) {
+    this.pubDate = pubDate;
+  }
+
+  public Status open(Boolean open) {
+    this.open = open;
+    return this;
+  }
+
+   /**
+   * Get open
+   * @return open
+  **/
+  @Schema(description = "")
+  public Boolean isOpen() {
+    return open;
+  }
+
+  public void setOpen(Boolean open) {
+    this.open = open;
   }
 
 
@@ -78,24 +100,26 @@ public class Link {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Link link = (Link) o;
-    return Objects.equals(this.templated, link.templated) &&
-        Objects.equals(this.href, link.href);
+    Status status = (Status) o;
+    return Objects.equals(this.closeDate, status.closeDate) &&
+        Objects.equals(this.pubDate, status.pubDate) &&
+        Objects.equals(this.open, status.open);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templated, href);
+    return Objects.hash(closeDate, pubDate, open);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Link {\n");
+    sb.append("class Status {\n");
     
-    sb.append("    templated: ").append(toIndentedString(templated)).append("\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    closeDate: ").append(toIndentedString(closeDate)).append("\n");
+    sb.append("    pubDate: ").append(toIndentedString(pubDate)).append("\n");
+    sb.append("    open: ").append(toIndentedString(open)).append("\n");
     sb.append("}");
     return sb.toString();
   }

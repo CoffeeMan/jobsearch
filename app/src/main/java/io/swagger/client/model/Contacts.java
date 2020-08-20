@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * Link
+ * Contacts
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-08-20T17:46:18.738Z[GMT]")
-public class Link {
-  @SerializedName("templated")
-  private Boolean templated = null;
+public class Contacts {
+  @SerializedName("number")
+  private String number = null;
 
-  @SerializedName("href")
-  private String href = null;
+  @SerializedName("email")
+  private String email = null;
 
-  public Link templated(Boolean templated) {
-    this.templated = templated;
+  public Contacts number(String number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Get templated
-   * @return templated
+   * Get number
+   * @return number
   **/
   @Schema(description = "")
-  public Boolean isTemplated() {
-    return templated;
+  public String getNumber() {
+    return number;
   }
 
-  public void setTemplated(Boolean templated) {
-    this.templated = templated;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
-  public Link href(String href) {
-    this.href = href;
+  public Contacts email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Get href
-   * @return href
+   * Get email
+   * @return email
   **/
   @Schema(description = "")
-  public String getHref() {
-    return href;
+  public String getEmail() {
+    return email;
   }
 
-  public void setHref(String href) {
-    this.href = href;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -78,24 +78,24 @@ public class Link {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Link link = (Link) o;
-    return Objects.equals(this.templated, link.templated) &&
-        Objects.equals(this.href, link.href);
+    Contacts contacts = (Contacts) o;
+    return Objects.equals(this.number, contacts.number) &&
+        Objects.equals(this.email, contacts.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templated, href);
+    return Objects.hash(number, email);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Link {\n");
+    sb.append("class Contacts {\n");
     
-    sb.append("    templated: ").append(toIndentedString(templated)).append("\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");
     return sb.toString();
   }
