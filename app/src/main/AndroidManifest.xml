@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Delete_vacancyActivity"></activity>
+        <activity android:name=".Add_companyActivity"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -25,7 +27,7 @@
         <activity
             android:name=".Home_screenActivity"
             android:label="JobSearch" />
-        <activity android:name=".Add_vacationActivity"></activity>
+        <activity android:name=".Add_vacancyActivity" />
     </application>
 
 </manifest>

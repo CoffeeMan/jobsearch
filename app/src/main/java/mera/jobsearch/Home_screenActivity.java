@@ -22,10 +22,7 @@ import java.util.List;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.api.EmployeeControllerApi;
-import io.swagger.client.api.VacancyControllerApi;
 import io.swagger.client.model.Employee;
-import io.swagger.client.model.Pageable;
-import io.swagger.client.model.Vacancy;
 import mera.jobsearch.adapters.VacansyAdapter;
 import mera.jobsearch.adapters.VacansyList;
 
@@ -73,7 +70,7 @@ public class Home_screenActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent move = new Intent(Home_screenActivity.this, Add_vacationActivity.class);
+                        Intent move = new Intent(Home_screenActivity.this, Add_vacancyActivity.class);
                         startActivity(move);
                     }
                 }
@@ -89,6 +86,16 @@ public class Home_screenActivity extends AppCompatActivity {
                         new employeeById().execute();
 
 
+                    }
+                }
+        );
+        add_vacation = (FloatingActionButton) findViewById(R.id.add_company);
+        add_vacation.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent move = new Intent(Home_screenActivity.this, Add_companyActivity.class);
+                        startActivity(move);
                     }
                 }
         );

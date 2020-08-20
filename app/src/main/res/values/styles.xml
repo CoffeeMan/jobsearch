@@ -7,11 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:editTextColor">#000000</item>
         <item name="android:textColorPrimary">#FFFFFF</item>
-        <!--<item name="android:textColorSecondary">#131313</item>
-        <item name="android:textColorTertiary">#D30D0D</item>
-        <item name="android:textColorPrimaryInverse">#ffffff</item>
-        <item name="android:textColorSecondaryInverse">#ffffff</item>
-        <item name="android:textColorTertiaryInverse">#ffffff</item>-->
+       <!-- <item name="android:textColorSecondary">#FFFFFF</item>
+        <item name="android:textColorTertiary">#FFFFFF</item>-->
+
+
+
     </style>
 
 
