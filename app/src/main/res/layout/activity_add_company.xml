@@ -30,7 +30,7 @@ tools:context=".Add_companyActivity">
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="300dp"
     android:layout_height="50dp"
-    android:hint="Enter name of company"
+    android:hint="Reference"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@ tools:context=".Add_companyActivity">
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="300dp"
     android:layout_height="50dp"
-    android:hint="Industry"
+    android:hint="Website"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -60,14 +60,14 @@ tools:context=".Add_companyActivity">
 
   <com.google.android.material.textfield.TextInputLayout
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-      android:layout_width="298dp"
-      android:layout_height="76dp"
-      android:hint="description"
+      android:layout_width="300dp"
+      android:layout_height="50dp"
+      android:hint="City"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.33">
+      app:layout_constraintVertical_bias="0.3">
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
@@ -78,12 +78,12 @@ tools:context=".Add_companyActivity">
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="300dp"
     android:layout_height="50dp"
-    android:hint="Responsibilities"
+    android:hint="Name"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.45">
+    app:layout_constraintVertical_bias="0.4">
 
   <com.google.android.material.textfield.TextInputEditText
       android:layout_width="match_parent"
@@ -93,24 +93,24 @@ tools:context=".Add_companyActivity">
 <com.google.android.material.textfield.TextInputLayout
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="300dp"
-    android:layout_height="50dp"
-    android:hint="City"
+    android:layout_height="76dp"
+    android:hint="Description"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.55">
+    app:layout_constraintVertical_bias="0.52">
 
   <com.google.android.material.textfield.TextInputEditText
       android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+      android:layout_height="76dp" />
 </com.google.android.material.textfield.TextInputLayout>
 
 <com.google.android.material.textfield.TextInputLayout
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="300dp"
     android:layout_height="50dp"
-    android:hint="Salary"
+    android:hint="Industry"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -135,21 +135,6 @@ tools:context=".Add_companyActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
   </com.google.android.material.textfield.TextInputLayout>
-
-  <com.google.android.material.textfield.TextInputLayout
-      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-      android:layout_width="300dp"
-      android:layout_height="50dp"
-      android:hint="Website"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.85">
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-  </com.google.android.material.textfield.TextInputLayout>
   <Button
       android:id="@+id/button"
       android:layout_width="75dp"
@@ -163,5 +148,5 @@ tools:context=".Add_companyActivity">
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
       app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
-      app:layout_constraintVertical_bias="0.95" />
+      app:layout_constraintVertical_bias="0.85" />
   </androidx.constraintlayout.widget.ConstraintLayout>
