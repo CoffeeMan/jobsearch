@@ -28,17 +28,64 @@ import mera.jobsearch.adapters.VacansyList;
 
 
 public class Home_screenActivity extends AppCompatActivity {
-    private FloatingActionButton add_vacation;
+    private FloatingActionButton add_resume, add_vacancy,add_company,add,delete,delete_vacancy,delete_resume,delete_company;
     private Button button2;
+    private Boolean Isopen;
     private List<VacansyList> vacansyLists = new ArrayList();
     ListView myList;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+        add=findViewById(R.id.add);
+        add_vacancy=findViewById(R.id.add_vacancy);
+        add_resume=findViewById(R.id.add_resume);
+        add_company=findViewById(R.id.add_company);
+        delete=findViewById(R.id.delete);
+        delete_vacancy=findViewById(R.id.delete_vacancy);
+        delete_company=findViewById(R.id.delete_company);
+        delete_resume=findViewById(R.id.delete_resume);
         setInitialData();
+        Isopen=true;
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Isopen){
+                    Isopen=false;
+                    add_company.setVisibility(View.VISIBLE);
+                    add_resume.setVisibility(View.VISIBLE);
+                    add_vacancy.setVisibility(View.VISIBLE);
+                }
+                else{
+                    Isopen=true;
+                    add_company.setVisibility(View.INVISIBLE);
+                    add_resume.setVisibility(View.INVISIBLE);
+                    add_vacancy.setVisibility(View.INVISIBLE);
+
+                }
+            }
+        });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Isopen){
+                    Isopen=false;
+                    delete_company.setVisibility(View.VISIBLE);
+                    delete_resume.setVisibility(View.VISIBLE);
+                    delete_vacancy.setVisibility(View.VISIBLE);
+                }
+                else{
+                    Isopen=true;
+                    delete_company.setVisibility(View.INVISIBLE);
+                    delete_resume.setVisibility(View.INVISIBLE);
+                    delete_vacancy.setVisibility(View.INVISIBLE);
+
+                }
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//toolbar по material design
         if (toolbar != null) {
@@ -64,9 +111,12 @@ public class Home_screenActivity extends AppCompatActivity {
 
     }
 
+
+
+
     private void addListenerOnButtons() {
-        add_vacation = (FloatingActionButton) findViewById(R.id.add_vacation);
-        add_vacation.setOnClickListener(
+        add_vacancy = (FloatingActionButton) findViewById(R.id.add_vacancy);
+        add_vacancy.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -75,7 +125,57 @@ public class Home_screenActivity extends AppCompatActivity {
                     }
                 }
         );
+        add_company = (FloatingActionButton) findViewById(R.id.add_company);
+        add_company.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent move = new Intent(Home_screenActivity.this, Add_companyActivity.class);
+                        startActivity(move);
+                    }
+                }
+        );
+        add_resume = (FloatingActionButton) findViewById(R.id.add_resume);
+        add_resume.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent move = new Intent(Home_screenActivity.this, Add_resumeActivity.class);
+                        startActivity(move);
+                    }
+                }
+        );
+        delete_resume = (FloatingActionButton) findViewById(R.id.delete_resume);
+        delete_resume.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent move = new Intent(Home_screenActivity.this, Delete_resumeActivity.class);
+                        startActivity(move);
+                    }
+                }
+        );
+        delete_company = (FloatingActionButton) findViewById(R.id.delete_company);
+        delete_company.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent move = new Intent(Home_screenActivity.this, Delete_companyActivity.class);
+                        startActivity(move);
+                    }
+                }
+        );
 
+        delete_vacancy = (FloatingActionButton) findViewById(R.id.delete_vacancy);
+        delete_vacancy.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent move = new Intent(Home_screenActivity.this, Delete_vacancyActivity.class);
+                        startActivity(move);
+                    }
+                }
+        );
         button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(
                 new View.OnClickListener() {
@@ -89,16 +189,7 @@ public class Home_screenActivity extends AppCompatActivity {
                     }
                 }
         );
-        add_vacation = (FloatingActionButton) findViewById(R.id.add_company);
-        add_vacation.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent move = new Intent(Home_screenActivity.this, Add_companyActivity.class);
-                        startActivity(move);
-                    }
-                }
-        );
+
     }
 
 
@@ -147,6 +238,7 @@ public class Home_screenActivity extends AppCompatActivity {
             //Toast.makeText(Home_screenActivity.this, "lol", Toast.LENGTH_SHORT).show();
         }
     }
+
     //Тестовая хрень, надо выянсить причем здесь Object
     /*public class allVacansy extends AsyncTask<Void, Object, Void> {
 
