@@ -20,7 +20,7 @@
 
             <SearchView
                 android:id="@+id/search"
-                android:layout_width="277dp"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"/>
 
             <Button
@@ -46,7 +46,6 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
-        style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
@@ -54,7 +53,7 @@
         android:layout_marginRight="15dp"
         android:backgroundTint="#3E86FA"
         android:clickable="true"
-        fab:rippleColor="#FFFFFF"
+        android:color="@color/colorPrimary"
         fab:srcCompat="@android:drawable/ic_input_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -69,7 +68,7 @@
         android:clickable="true"
         android:visibility="invisible"
         fab:rippleColor="#FFFFFF"
-        fab:srcCompat="@drawable/add_vacation_icon" />
+        fab:srcCompat="@drawable/add_vacancy_icon" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_company"
