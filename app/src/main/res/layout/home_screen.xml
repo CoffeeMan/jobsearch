@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,8 +21,10 @@
 
             <SearchView
                 android:id="@+id/search"
-                android:layout_width="250dp"
-                android:layout_height="match_parent"/>
+                android:layout_width="263dp"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                tools:visibility="visible" />
 
             <Button
                 android:id="@+id/button2"
@@ -109,7 +112,7 @@
         android:backgroundTint="#3E86FA"
         android:clickable="true"
         fab:rippleColor="#FFFFFF"
-        fab:srcCompat="@android:drawable/ic_delete" />
+        fab:srcCompat="@drawable/delete_button_icon" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/delete_vacancy"
